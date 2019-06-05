@@ -10,17 +10,17 @@ It strips the BTC price and uses BCH as base, then it calculates how much of a B
 
 ## How do I run it?
 Clone this repo, then create a virtual environment with whatever tool you use, activate it and use
-'''
+```bash
 pip install -r requirements.txt
-'''
+```
 on the cloned folder.
 Then just use
-'''
+```bash
 python manage.py migrate
-'''
-'''
+```
+```bash
 python manage.py runserver
-'''
+```
 and that's all.
 
 ## License
