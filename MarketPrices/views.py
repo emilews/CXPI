@@ -4,9 +4,6 @@ from django.http import HttpResponseNotFound, JsonResponse
 import requests
 
 from . import Fetcher
-# Global variable for requests
-prefix = 'http://'
-suffix = 'getAllMarketPrices/'
 
 # This is the base method, as you can see, is fetching the JSON from 
 # the original source
