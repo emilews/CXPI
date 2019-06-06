@@ -15,6 +15,14 @@ def getAllMarketPrices(request):
     else:
       return HttpResponseNotFound()
 
+def getFees(request):
+  if request.method == 'GET':
+    data = Fetcher.getFees()
+    if data:
+      return data
+    else:
+      return HttpResponseNotFound()
+
 def getPrice(request):
   Fetcher.getCMCPrice()  
   return HttpResponseNotFound()

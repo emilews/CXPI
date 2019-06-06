@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from MarketPrices import views
 
 urlpatterns = [
-    path('', views.Normal),
+    path('', views.getFees),
 ]

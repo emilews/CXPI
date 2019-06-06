@@ -9,7 +9,8 @@ from bs4 import BeautifulSoup
 
 # Global strings for original source
 prefix = 'http://'
-suffix = 'getAllMarketPrices/'
+suffixPrices = 'getAllMarketPrices/'
+suffixFees = 'getFees/'
 
 # Global URL for prices
 BCH_Price_URL = 'https://coinmarketcap.com/currencies/bitcoin-cash/'
@@ -22,6 +23,8 @@ BTC_Price = 0
 
 # Global data
 dataD = {}
+feesData = {}
+
 
 # It updates the price on BTC and BCH, then it fetches the original JSON
 # and changes the prices accordingly
@@ -31,6 +34,14 @@ def getAllMarketPrices():
     return JsonResponse(dataD)
   else:
     return JsonResponse(updateDataD())
+
+def getFees():
+  global feesData
+  if feesData:
+    return JsonResponse(feesData)
+  else:
+    temp = updateDataD()
+    return JsonResponse(feesData)
 
 def getCMCPrice():
   global BCH_Price
@@ -66,8 +77,11 @@ def parseJsonToBCH():
 
 def updateDataD():
   global dataD
+  global feesData
   getCMCPrice()
-  r = requests.get(prefix + '174.138.104.137:8080/' + suffix)
+  r = requests.get(prefix + '174.138.104.137:8080/' + suffixPrices)
+  fees = requests.get(prefix + '174.138.104.137:8080/' + suffixFees)
+  feesData = fees.json()
   if r.status_code == requests.codes.ok:
     dataD = r.json()
     return JsonResponse(parseJsonToBCH())

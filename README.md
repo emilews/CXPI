@@ -19,7 +19,7 @@ Then just use
 python manage.py migrate
 ```
 ```bash
-python manage.py runserver
+python manage.py runserver 8080 --noreload
 ```
 and that's all.
 
