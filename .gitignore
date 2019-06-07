@@ -2,6 +2,7 @@ venv/*
 cashxserver/__pycache__/*
 MarketPrices/__pycache__/*
 Fees/__pycache__/*
-
+APS/__pycache__/*
+*.pyc
 
 db.sqlite3
