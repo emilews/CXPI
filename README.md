@@ -22,7 +22,10 @@ python manage.py migrate
 python manage.py runserver 8080 --noreload
 ```
 and that's all.
-Well, if you don't mind, change the secret key in cashxserver/settings.py and now it would be everything you need to do.
+Well, if you do mind, change the secret key in cashxserver/settings.py and now it would be everything you need to do.
+
+## To do
+* Make a monitoring main page for prices and requests.
 
 ## License
 Nah, just use it.
