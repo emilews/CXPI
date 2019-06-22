@@ -26,6 +26,7 @@ Well, if you do mind, change the secret key in cashxserver/settings.py and now i
 
 ## To do
 * Make a monitoring main page for prices and requests.
+* Make two modes, a Core Mode and a Sync Mode.
 
 ## License
 Nah, just use it.
