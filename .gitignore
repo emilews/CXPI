@@ -4,5 +4,6 @@ MarketPrices/__pycache__/*
 Fees/__pycache__/*
 APS/__pycache__/*
 *.pyc
+.vscode/*
 
 db.sqlite3
