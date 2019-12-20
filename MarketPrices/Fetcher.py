@@ -48,13 +48,13 @@ def getCMCPrice():
   global BTC_Price
   r = requests.get(BCH_Price_URL)
   soup = BeautifulSoup(r.text, features="html.parser")
-  req = soup.find_all('span', class_='h2 text-semi-bold details-panel-item--price__value')
-  BCH_Price = float(req[0].string)
+  req = soup.find_all('span', class_='cmc-details-panel-price__price')
+  BCH_Price = float(req[0].string.split('$')[1])
   print(BCH_Price)
   r = requests.get(BTC_Price_URL)
   soup = BeautifulSoup(r.text, features="html.parser")
-  req = soup.find_all('span', class_='h2 text-semi-bold details-panel-item--price__value')
-  BTC_Price = float(req[0].string)
+  req = soup.find_all('span', class_='cmc-details-panel-price__price')
+  BTC_Price = float(req[0].string.split('$')[1].replace(',',''))
   print(BTC_Price)
 
 
