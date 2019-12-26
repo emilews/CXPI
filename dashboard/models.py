@@ -4,7 +4,7 @@ from django.db import models
 
 class BCHData(models.Model):
     price = models.FloatField()
-    date = models.DateField(auto_now_add=True)
+    date_of_price = models.DateField(auto_now_add=True)
 
     @classmethod
     def create(cls, new_price):

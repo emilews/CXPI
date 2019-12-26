@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('dashboard.urls')),
+    path('api', include('dashboard.urls')),
     path('getAllMarketPrices', include('MarketPrices.urls')),
     path('getFees', include('Fees.urls')),
 ]
