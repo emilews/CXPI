@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotFound, JsonResponse
 
+from dashboard.models import BCHData
+
 import json
 
 import requests
@@ -33,7 +35,8 @@ def getAllMarketPrices():
   if dataD:
     return JsonResponse(dataD)
   else:
-    return JsonResponse(updateDataD())
+    updateDataD()
+    return JsonResponse(dataD)
 
 def getFees():
   global feesData
@@ -51,6 +54,7 @@ def getCMCPrice():
   req = soup.find_all('span', class_='cmc-details-panel-price__price')
   BCH_Price = float(req[0].string.split('$')[1])
   print(BCH_Price)
+  BCHData.create(BCH_Price)
   r = requests.get(BTC_Price_URL)
   soup = BeautifulSoup(r.text, features="html.parser")
   req = soup.find_all('span', class_='cmc-details-panel-price__price')

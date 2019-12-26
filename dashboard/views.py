@@ -4,4 +4,4 @@ from django.http import HttpResponseNotFound, JsonResponse
 # Create your views here.
 
 def getDashboard(request):
-    return HttpResponseNotFound()
+    return
